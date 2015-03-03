@@ -343,7 +343,20 @@ def master():
     ## Get all ChEMBL targets with a Uniprot accession.
     # targets = getUniprotTargets(config)
     ## Get all Human targets from ChEMBL with a Uniprot accession.
-    targets = getHumanTargets(config)
+    # targets = getHumanTargets(config)
+    
+    
+    
+    ## Get human targets from list (50) for testing purposes
+    targets = []
+    f = open('uniprot_shortlist.txt', 'r')
+    lines = f.readlines()
+    for line in lines:
+        line = line.replace("\n", "")
+        targets.append(line)
+    
+    
+    
     ## Get the domains by parsing Pfam. This step takes long and pickles out the domainDict.
     pfamDict = getDomains(targets, config)
     ## Export the PfamDict as a (mysql) table.

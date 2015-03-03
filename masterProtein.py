@@ -108,7 +108,20 @@ def master():
     configFile.close()
     
     ## Get all Human targets from ChEMBL with a Uniprot accession.
-    targets = getHumanTargets(config)
+    # targets = getHumanTargets(config)
+    
+    
+    
+    ## Get human targets from list (50) for testing purposes
+    targets = []
+    f = open('uniprot_shortlist.txt', 'r')
+    lines = f.readlines()
+    for line in lines:
+        line = line.replace("\n", "")
+        targets.append(line)
+    
+    
+    
     
     ## Map small molecules to proteins
     
